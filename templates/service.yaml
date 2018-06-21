@@ -115,9 +115,10 @@ Resources:
               awslogs-region: !Ref AWS::Region
               awslogs-group: !Ref LogGroup
               awslogs-stream-prefix: !Ref AWS::StackName
+          entryPoint": null
           Command:
             # - /bin/sh -c "while true; do /bin/date > /var/www/my-vol/date; sleep 1; done"
-            - /bin/sh ./run_web.sh
+            - ./run_web.sh
         - Name: celery
           Image: secure-gdpr-web
           EntryPoint:
