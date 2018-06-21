@@ -97,7 +97,7 @@ Resources:
       ExecutionRoleArn: !Ref TaskExecutionRole
       ContainerDefinitions:
         - Name: secure-gdpr-web
-          Image: amazon/amazon-ecs-sample
+          Image: ${REPOSITORY_URI}:${TAG}"
 #          EntryPoint:
 #            - /usr/sbin/apache2
 #            - -D
@@ -109,6 +109,7 @@ Resources:
               ContainerPath: /var/www/my-vol
           PortMappings:
             - ContainerPort: 8000
+            - HostPort: 80
           LogConfiguration:
             LogDriver: awslogs
             Options:
@@ -118,8 +119,8 @@ Resources:
           Command:
             # - /bin/sh -c "while true; do /bin/date > /var/www/my-vol/date; sleep 1; done"
             - ./run_web.sh
-        - Name: busybox
-          Image: busybox
+        - Name: celery
+          Image: ${REPOSITORY_URI}:${TAG}"
           EntryPoint:
             - sh
             - -c
