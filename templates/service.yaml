@@ -117,7 +117,7 @@ Resources:
               awslogs-stream-prefix: !Ref AWS::StackName
           Command:
             # - /bin/sh -c "while true; do /bin/date > /var/www/my-vol/date; sleep 1; done"
-            - ./run_web.sh
+            - /bin/sh ./run_web.sh
         - Name: celery
           Image: secure-gdpr-web
           EntryPoint:
