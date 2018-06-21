@@ -205,6 +205,6 @@ Outputs:
   PipelineUrl:
     Value: !Sub https://console.aws.amazon.com/codepipeline/home?region=${AWS::Region}#/view/${Pipeline}
 
-  ImageUri:
+  OutImageUri:
     !Sub $IMAGE_URI
 

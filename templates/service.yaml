@@ -26,7 +26,7 @@ Parameters:
   Subnets:
     Type: List<AWS::EC2::Subnet::Id>
 
-  ImageUri:
+  NewImageUri:
     Type: String
 
 
