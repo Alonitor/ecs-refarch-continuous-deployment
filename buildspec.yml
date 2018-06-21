@@ -1,18 +1,18 @@
 version: 0.2
 
 phases:
- pre_build:
+  pre_build:
     commands:
-     - echo Entered the pre_build phase...
+      - echo Entered the pre_build phase...
       - echo Logging in to Amazon ECR...
       - aws --version
       #- $(aws ecr get-login --no-include-email --region eu-west-1)
-    build:
-      commands:
-        - echo Build started on `date`
-        - echo copy everything to s3 bucket
-        #- aws s3 cp . s3://sgdpr-deploymentstore/ --recursive
-        - aws s3 cp --recursive --acl . s3://sgdpr-deploymentstore
-        - echo finished copying files to s3 sgdpr-deploymentstore
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo copy everything to s3 bucket
+      - aws s3 cp . s3://sgdpr-deploymentstore/ --recursive
+      #- aws s3 cp --recursive --acl . s3://sgdpr-deploymentstore
+      - echo finished copying files to s3 sgdpr-deploymentstore
 
-        # https://start.jcolemorrison.com/cloudfoundation-build-manage-and-deploy-cloudformation-templates/
+      # https://start.jcolemorrison.com/cloudfoundation-build-manage-and-deploy-cloudformation-templates/
