@@ -23,12 +23,13 @@ Parameters:
       to learn more about launch types.
 
   GitHubUser:
-    Type: String
+    Type: 'AWS::SSM::Parameter::Value<String>'
+    Default: GITHUBUSER
     Description: Your username on GitHub.
 
   GitHubRepo:
-    Type: String
-    Default: ecs-demo-php-simple-app
+    Type: 'AWS::SSM::Parameter::Value<String>'
+    Default: GITHUBTOKEN
     Description: The repo name of the sample service.
 
   GitHubBranch:
