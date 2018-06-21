@@ -108,7 +108,8 @@ Resources:
             - SourceVolume: my-vol
               ContainerPath: /var/www/my-vol
           PortMappings:
-            - HostPort: 8000
+            ContainerPort: 8000
+            HostPort: 80
           LogConfiguration:
             LogDriver: awslogs
             Options:
