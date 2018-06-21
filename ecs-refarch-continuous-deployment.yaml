@@ -133,6 +133,7 @@ Resources:
         TargetGroup: !GetAtt LoadBalancer.Outputs.TargetGroup
         SourceSecurityGroup: !GetAtt LoadBalancer.Outputs.SecurityGroup
         Subnets: !GetAtt VPC.Outputs.Subnets
+        ImageUri: !GetAtt DeploymentPipeline.Outputs.ImageUri
 
 
 Outputs:

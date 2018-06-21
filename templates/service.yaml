@@ -26,6 +26,9 @@ Parameters:
   Subnets:
     Type: List<AWS::EC2::Subnet::Id>
 
+  ImageUri:
+    Type: String
+
 
 Conditions:
   Fargate: !Equals [ !Ref LaunchType, "Fargate" ]
@@ -97,7 +100,7 @@ Resources:
       ExecutionRoleArn: !Ref TaskExecutionRole
       ContainerDefinitions:
         - Name: secure-gdpr-web
-          Image: !Sub ${IMAGE_URI}
+          Image: !Ref ImageUri
 #          EntryPoint:
 #            - /usr/sbin/apache2
 #            - -D
@@ -119,7 +122,7 @@ Resources:
             # - /bin/sh -c "while true; do /bin/date > /var/www/my-vol/date; sleep 1; done"
             - ./run_web.sh
         - Name: celery
-          Image: !Sub ${IMAGE_URI}
+          Image: !Ref ImageUri
           EntryPoint:
             - sh
             - -c
