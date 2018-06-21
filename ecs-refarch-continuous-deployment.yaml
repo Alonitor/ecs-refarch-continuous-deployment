@@ -39,7 +39,7 @@ Parameters:
 
   GitHubToken:
     Type: 'AWS::SSM::Parameter::Value<String>'
-    NoEcho: GITHUBTOKEN
+    Default: GITHUBTOKEN
     Description: >
       Token for the user specified above. (https://github.com/settings/tokens)
 
