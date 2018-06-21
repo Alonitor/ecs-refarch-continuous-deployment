@@ -100,7 +100,7 @@ Resources:
       ExecutionRoleArn: !Ref TaskExecutionRole
       ContainerDefinitions:
         - Name: secure-gdpr-web
-          Image: !Ref ImageUri
+          Image: !Ref NewImageUri
 #          EntryPoint:
 #            - /usr/sbin/apache2
 #            - -D
@@ -122,7 +122,7 @@ Resources:
             # - /bin/sh -c "while true; do /bin/date > /var/www/my-vol/date; sleep 1; done"
             - ./run_web.sh
         - Name: celery
-          Image: !Ref ImageUri
+          Image: !Ref NewImageUri
           EntryPoint:
             - sh
             - -c
