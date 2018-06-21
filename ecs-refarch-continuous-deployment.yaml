@@ -29,17 +29,17 @@ Parameters:
 
   GitHubRepo:
     Type: 'AWS::SSM::Parameter::Value<String>'
-    Default: GITHUBTOKEN
+    Default: SGDPR_REPO
     Description: The repo name of the sample service.
 
   GitHubBranch:
-    Type: String
-    Default: master
+    Type: 'AWS::SSM::Parameter::Value<String>'
+    Default: SGDPR_MASTER_BRANCH
     Description: The branch of the repo to continuously deploy.
 
   GitHubToken:
-    Type: String
-    NoEcho: true
+    Type: 'AWS::SSM::Parameter::Value<String>'
+    NoEcho: GITHUBTOKEN
     Description: >
       Token for the user specified above. (https://github.com/settings/tokens)
 
