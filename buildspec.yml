@@ -6,7 +6,7 @@ phases:
      - echo Entered the pre_build phase...
       - echo Logging in to Amazon ECR...
       - aws --version
-      - $(aws ecr get-login --no-include-email --region eu-west-1)
+      #- $(aws ecr get-login --no-include-email --region eu-west-1)
   build:
       commands:
         - echo Build started on `date`
