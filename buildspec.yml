@@ -13,3 +13,5 @@ phases:
         - echo copy everything to s3 bucket
         - aws s3 cp . s3://sgdpr-deploymentstore/ --recursive
         - echo finished copying files to s3 sgdpr-deploymentstore
+
+        # https://start.jcolemorrison.com/cloudfoundation-build-manage-and-deploy-cloudformation-templates/
