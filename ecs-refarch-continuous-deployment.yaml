@@ -45,7 +45,7 @@ Parameters:
 
   TemplateBucket:
     Type: String
-    Default: ecs-refarch-continuous-deployment
+    Default: sgdpr-deploymentstore #ecs-refarch-continuous-deployment
     Description: >
       The S3 bucket from which to fetch the templates used by this stack.
 

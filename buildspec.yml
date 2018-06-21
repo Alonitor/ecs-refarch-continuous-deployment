@@ -1,0 +1,5 @@
+build:
+    commands:
+      - echo Build started on `date`
+      - echo copy everything to s3 bucket
+      - aws s3 cp . s3://sgdpr-deploymentstore/ --recursive
