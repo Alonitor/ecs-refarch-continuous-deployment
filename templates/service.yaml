@@ -126,8 +126,8 @@ Resources:
               awslogs-group: !Ref LogGroup
               awslogs-stream-prefix: !Ref AWS::StackName
           Command:
-            - find ./ -name "*.sh" -exec chmod +x {} \;
-            - ./run_web.sh
+#            - find ./ -name "*.sh" -exec chmod +x {} \;
+            - run_web.sh
 #            - ls
 #            - run_web.sh
             #- /bin/sh -c "run_web.sh"
