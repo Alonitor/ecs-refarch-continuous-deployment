@@ -99,7 +99,7 @@ Resources:
       ExecutionRoleArn: !Ref TaskExecutionRole
       ContainerDefinitions:
         - Name: secure-gdpr-web
-          Image: 325626510098.dkr.ecr.eu-west-1.amazonaws.com/ecs-s-repos-lbkv4ur0z9rk #:Latest!!
+          Image: 325626510098.dkr.ecr.eu-west-1.amazonaws.com/ecs-s-repos-lbkv4ur0z9rk:latest
           EntryPoint:
 #            - ./run_web.sh
             - sh
@@ -124,8 +124,8 @@ Resources:
               awslogs-group: !Ref LogGroup
               awslogs-stream-prefix: !Ref AWS::StackName
           Command:
-            - ls
-#            - run_web.sh
+#            - ls
+            - run_web.sh
             #- /bin/sh -c "run_web.sh"
             # - /bin/sh -c "while true; do /bin/date > /var/www/my-vol/date; sleep 1; done"
 #            - /bin/sh -c "/app/run_web.sh"
