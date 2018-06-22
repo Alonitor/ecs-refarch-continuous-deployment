@@ -46,7 +46,9 @@ Resources:
             Principal:
               Service: ecs-tasks.amazonaws.com
       ManagedPolicyArns:
-        - arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
+        - arn:aws:iam::325626510098:role/ecsTaskExecutionRole
+#        - arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
+
 
   LogGroup:
     Type: AWS::Logs::LogGroup
@@ -98,20 +100,20 @@ Resources:
       ContainerDefinitions:
         - Name: secure-gdpr-web
           Image: 325626510098.dkr.ecr.eu-west-1.amazonaws.com/ecs-s-repos-lbkv4ur0z9rk:9e6dcc83
-          EntryPoint:
-            - sh
-            - -c
-#            - ./run_web.sh
-#            - /usr/sbin/apache2
-#            - -D
-#            - FOREGROUND
-#            - NULL
+#          EntryPoint:
+#            - sh
+#            - -c
+##            - ./run_web.sh
+##            - /usr/sbin/apache2
+##            - -D
+##            - FOREGROUND
+##            - NULL
           Essential: true
           Memory: 256
-          MountPoints:
-            - SourceVolume: my-vol
-              #ContainerPath: /var/www/my-vol
-              ContainerPath: /app
+#          MountPoints:
+#            - SourceVolume: my-vol
+#              #ContainerPath: /var/www/my-vol
+#              ContainerPath: /app
           PortMappings:
             - ContainerPort: 8000
           LogConfiguration:
@@ -121,28 +123,28 @@ Resources:
               awslogs-group: !Ref LogGroup
               awslogs-stream-prefix: !Ref AWS::StackName
           Command:
-            - /bin/sh -c "run_web.sh"
+            #- /bin/sh -c "run_web.sh"
             # - /bin/sh -c "while true; do /bin/date > /var/www/my-vol/date; sleep 1; done"
 #            - /bin/sh -c "/app/run_web.sh"
-#            - ./run_web.sh
+            - ./run_web.sh
             #- /bin/sh -c "ls"
 #            - su -m myuser -c "ls"
 #            - su -m myuser -c "app/run_web.sh"
-        - Name: celery
-          Image: 325626510098.dkr.ecr.eu-west-1.amazonaws.com/ecs-s-repos-lbkv4ur0z9rk:9e6dcc83
-          EntryPoint:
-            - sh
-            - -c
-          Essential: true
-          Memory: 256
-          VolumesFrom:
-            - SourceContainer: secure-gdpr-web
-          Command:
-            #- /bin/sh -c "while true; do /bin/date > /var/www/my-vol/date; sleep 1; done"
-            - ls
-#            - ./run_celery.sh
-      Volumes:
-        - Name: my-vol
+#        - Name: celery
+#          Image: 325626510098.dkr.ecr.eu-west-1.amazonaws.com/ecs-s-repos-lbkv4ur0z9rk:9e6dcc83
+#          EntryPoint:
+#            - sh
+#            - -c
+#          Essential: true
+#          Memory: 256
+#          VolumesFrom:
+#            - SourceContainer: secure-gdpr-web
+#          Command:
+#            #- /bin/sh -c "while true; do /bin/date > /var/www/my-vol/date; sleep 1; done"
+#            - ls
+##            - ./run_celery.sh
+#      Volumes:
+#        - Name: my-vol
 
 
 Outputs:
