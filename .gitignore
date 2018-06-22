@@ -1,1 +1,7 @@
 *.zip
+/.idea/misc.xml
+/.idea/vcs.xml
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/ecs-refarch-continuous-deployment.iml
+.idea/
