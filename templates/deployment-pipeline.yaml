@@ -197,7 +197,7 @@ Resources:
                 Provider: ECS
               Configuration:
                 ClusterName: !Ref Cluster
-                ServiceName: !Ref Service
+                ServiceName: Secure_GDPR_Web #!Ref Service OH
                 FileName: images.json
               InputArtifacts:
                 - Name: BuildOutput
@@ -207,5 +207,7 @@ Resources:
 Outputs:
   PipelineUrl:
     Value: !Sub https://console.aws.amazon.com/codepipeline/home?region=${AWS::Region}#/view/${Pipeline}
+  ImageURI:
+    Value: $IMAGE_URI
 
 
