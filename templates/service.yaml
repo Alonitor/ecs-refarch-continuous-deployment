@@ -99,13 +99,13 @@ Resources:
         - Name: secure-gdpr-web
           Image: 325626510098.dkr.ecr.eu-west-1.amazonaws.com/ecs-s-repos-lbkv4ur0z9rk:9e6dcc83
           EntryPoint:
-            - sh
-            - -c
+#            - sh
+#            - -c
 #            - ./run_web.sh
 #            - /usr/sbin/apache2
 #            - -D
 #            - FOREGROUND
-#            - NULL
+            - NULL
           Essential: true
           Memory: 256
           MountPoints:
@@ -121,7 +121,8 @@ Resources:
               awslogs-stream-prefix: !Ref AWS::StackName
           Command:
             # - /bin/sh -c "while true; do /bin/date > /var/www/my-vol/date; sleep 1; done"
-            - ./run_web.sh
+#            - ./run_web.sh
+            - su -m myuser -c "python manage.py makemigrations"
         - Name: celery
           Image: secure-gdpr-web
           EntryPoint:
