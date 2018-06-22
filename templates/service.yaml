@@ -110,7 +110,8 @@ Resources:
           Memory: 256
           MountPoints:
             - SourceVolume: my-vol
-              ContainerPath: /var/www/my-vol
+              #ContainerPath: /var/www/my-vol
+              ContainerPath: /app
           PortMappings:
             - ContainerPort: 8000
           LogConfiguration:
@@ -122,7 +123,7 @@ Resources:
           Command:
             # - /bin/sh -c "while true; do /bin/date > /var/www/my-vol/date; sleep 1; done"
 #            - ./run_web.sh
-            - su -m myuser -c "python manage.py makemigrations"
+            - su -m myuser -c "./run_web.sh"
         - Name: celery
           Image: secure-gdpr-web
           EntryPoint:
