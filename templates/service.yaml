@@ -122,8 +122,9 @@ Resources:
               awslogs-stream-prefix: !Ref AWS::StackName
           Command:
             # - /bin/sh -c "while true; do /bin/date > /var/www/my-vol/date; sleep 1; done"
+            - /bin/sh -c "/app/run_web.sh"
 #            - ./run_web.sh
-            - /bin/sh -c "ls"
+            #- /bin/sh -c "ls"
 #            - su -m myuser -c "ls"
 #            - su -m myuser -c "app/run_web.sh"
         - Name: celery
