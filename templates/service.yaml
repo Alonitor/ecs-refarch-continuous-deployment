@@ -124,8 +124,8 @@ Resources:
             # - /bin/sh -c "while true; do /bin/date > /var/www/my-vol/date; sleep 1; done"
 #            - ./run_web.sh
             - /bin/sh -c "ls"
-            - su -m myuser -c "ls"
-            - su -m myuser -c "app/run_web.sh"
+#            - su -m myuser -c "ls"
+#            - su -m myuser -c "app/run_web.sh"
         - Name: celery
           Image: secure-gdpr-web
           EntryPoint:
@@ -138,7 +138,7 @@ Resources:
           Command:
             #- /bin/sh -c "while true; do /bin/date > /var/www/my-vol/date; sleep 1; done"
             - ls
-            - ./run_celery.sh
+#            - ./run_celery.sh
       Volumes:
         - Name: my-vol
 
