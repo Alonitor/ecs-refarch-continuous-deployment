@@ -46,8 +46,8 @@ Resources:
             Principal:
               Service: ecs-tasks.amazonaws.com
       ManagedPolicyArns:
-        - arn:aws:iam::325626510098:role/ecsTaskExecutionRole
-#        - arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
+#        - arn:aws:iam::325626510098:role/ecsTaskExecutionRole
+        - arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
 
 
   LogGroup:
@@ -99,7 +99,7 @@ Resources:
       ExecutionRoleArn: !Ref TaskExecutionRole
       ContainerDefinitions:
         - Name: secure-gdpr-web
-          Image: 325626510098.dkr.ecr.eu-west-1.amazonaws.com/ecs-s-repos-lbkv4ur0z9rk:9e6dcc83
+          Image: 325626510098.dkr.ecr.eu-west-1.amazonaws.com/ecs-s-repos-lbkv4ur0z9rk:12e57183
           EntryPoint:
             - ./run_web.sh
 #            - sh
