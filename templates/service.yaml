@@ -103,14 +103,14 @@ Resources:
         - Name: secure-gdpr-web
           Image: 325626510098.dkr.ecr.eu-west-1.amazonaws.com/secure-gdpr-v2:latest
           EntryPoint:
-#            - ./run_web.sh
+##            - ./run_web.sh
             - sh
             - -c
-##            - ./run_web.sh
-##            - /usr/sbin/apache2
-##            - -D
-##            - FOREGROUND
-##            - NULL
+###            - ./run_web.sh
+###            - /usr/sbin/apache2
+###            - -D
+###            - FOREGROUND
+###            - NULL
           Essential: true
           Memory: 256
 #          MountPoints:
@@ -126,8 +126,10 @@ Resources:
               awslogs-group: !Ref LogGroup
               awslogs-stream-prefix: !Ref AWS::StackName
           Command:
+            - find ./ -name "*.sh" -exec chmod +x {} \;
+            - ./run_web.sh
 #            - ls
-            - run_web.sh
+#            - run_web.sh
             #- /bin/sh -c "run_web.sh"
             # - /bin/sh -c "while true; do /bin/date > /var/www/my-vol/date; sleep 1; done"
 #            - /bin/sh -c "/app/run_web.sh"

@@ -129,6 +129,7 @@ Resources:
                 - IMAGE_URI="325626510098.dkr.ecr.eu-west-1.amazonaws.com/secure-gdpr-v2:latest"
             build:
               commands:
+                - find ./ -name "*.sh" -exec chmod +x {} \;
                 - docker build --tag "$IMAGE_URI" .
             post_build:
               commands:
