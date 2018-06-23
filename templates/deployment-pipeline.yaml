@@ -123,10 +123,6 @@ Resources:
               commands:
                 - $(aws ecr get-login --no-include-email)
                 - IMAGE_URI="325626510098.dkr.ecr.eu-west-1.amazonaws.com/secure-gdpr-v2:latest"
-#                - TAG="$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
-#                - TAG="latest"
-#                - IMAGE_URI="${REPOSITORY_URI}:${TAG}"
-#                - IMAGE_URI="${REPOSITORY_URI}:latest"
             build:
               commands:
                 - find ./ -name "*.sh" -exec chmod +x {} \;
