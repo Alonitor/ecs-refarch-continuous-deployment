@@ -104,8 +104,8 @@ Resources:
           Image: 325626510098.dkr.ecr.eu-west-1.amazonaws.com/secure-gdpr-v2:latest
           EntryPoint:
 ##            - ./run_web.sh
-            - sh
-            - -c
+#            - sh
+#            - -c
 ###            - ./run_web.sh
 ###            - /usr/sbin/apache2
 ###            - -D
@@ -127,7 +127,7 @@ Resources:
               awslogs-stream-prefix: !Ref AWS::StackName
           Command:
 #            - find ./ -name "*.sh" -exec chmod +x {} \;
-            - run_web.sh
+            - ./run_web.sh
 #            - ls
 #            - run_web.sh
             #- /bin/sh -c "run_web.sh"
