@@ -59,13 +59,11 @@ Resources:
       Protocol: HTTP
       Matcher:
         HttpCode: 200-299
-      HealthCheckIntervalSeconds: 300
+      HealthCheckIntervalSeconds: 10
       HealthCheckPath: /
       HealthCheckProtocol: HTTP
-      HealthCheckTimeoutSeconds: 290
-      HealthyThresholdCount: 1
-      TargetType: !If [ EC2, "instance", "ip" ]
-      UnhealthyThresholdCount: 10
+      HealthCheckTimeoutSeconds: 5
+      HealthyThresholdCount: 2
       TargetGroupAttributes:
         - Key: deregistration_delay.timeout_seconds
           Value: 30
