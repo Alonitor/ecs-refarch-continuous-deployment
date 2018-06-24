@@ -111,6 +111,17 @@ Resources:
 ###            - -D
 ###            - FOREGROUND
 ###            - NULL
+          Environment:
+            - Name: DB_ENV_DB
+              Value: gdpr
+            - Name: DB_ENV_POSTGRES_PASSWORD
+              Value: Oq86Nigu
+            - Name: DB_ENV_POSTGRES_USER
+              Value: oddhenrik
+            - Name: DB_PORT_5432_TCP_ADDR
+              Value: gdpr.csumrwlsjx23.eu-west-1.rds.amazonaws.com
+            - Name: DB_PORT_5432_TCP_PORT
+              Value: 5432
           Essential: true
           Memory: 256
 #          MountPoints:
